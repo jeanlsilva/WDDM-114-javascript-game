@@ -36,8 +36,9 @@ button {
 
 .levels {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    width: 30%;
+    width: 10%;
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -48,6 +49,7 @@ button {
     font-size: 32px;
     font-family: inherit;
     cursor: pointer;
+    margin: 10px 0;
 }
 
 .ball {

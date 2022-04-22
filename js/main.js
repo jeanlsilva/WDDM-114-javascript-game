@@ -44,9 +44,7 @@ function start(level) {
     const colours = [
         "#FF0000",
         "#FFFF00",
-        "#FF000F",
         "#0000FF",
-        "#8e24aa",
         "#ff7600",
         "#3949ab",
         "#9c27b0",
@@ -86,7 +84,7 @@ function start(level) {
             node.style.top = `${Math.floor(Math.random(10) * (window.innerHeight - 150))}px`;
     
             node.setAttribute("onclick", `handleClick(this)`)
-            const index = Math.floor(Math.random(10) * 11);
+            const index = Math.floor(Math.random(10) * 9);
             node.style.backgroundColor = colours[index];
     
             ballArea.appendChild(node);
@@ -113,32 +111,31 @@ function setBackground(level) {
         levelsButtons.forEach((button) => button.style.color = '#000000');
         const button = document.querySelector("#easy");
         button.style.color = "#FFFF00";
-        button.style.fontSize = '40px';
         menu.style.color = '#000000';
+        playAgainButton.style.color = '#000000'
     } else if (level === 'medium') {
         main.style.backgroundColor = '#eeee00'
         main.style.color = '#000000';
         levelsButtons.forEach((button) => button.style.color = '#000000');
         const button = document.querySelector("#medium");
         button.style.color = "#FF00FF";
-        button.style.fontSize = '40px';
         menu.style.color = '#000000';
+        playAgainButton.style.color = '#000000'
     } else if (level === 'hard') {
         main.style.backgroundColor = '#c53030';
         main.style.color = '#000000';
         levelsButtons.forEach((button) => button.style.color = '#000000');
         const button = document.querySelector("#hard");
         button.style.color = "#FFFFFF";
-        button.style.fontSize = '40px';
         menu.style.color = '#000000';
+        playAgainButton.style.color = '#000000'
     } else {
         main.style.backgroundColor = '#000000';
         main.style.color = '#c53030';
         playAgainButton.style.color = "#c53030";
         levelsButtons.forEach((button) => button.style.color = '#c53030');
         const button = document.querySelector("#insane");
-        button.style.color = "#c53030";
-        button.style.fontSize = '40px';
+        button.style.color = "#660000";
         menu.style.color = '#c53030';
     }
 }
@@ -155,6 +152,11 @@ function playAgain() {
     const span = document.createElement("span");
     span.innerHTML = score;
     scoreArea.appendChild(span);
-    
+    number = 0;
     timer = 90;
+    const oldTimer = timerArea.querySelector("span");
+    timerArea.removeChild(oldTimer);
+    const timerSpan = document.createElement("span");
+    timerSpan.innerHTML = `${timer} seconds`;
+    timerArea.appendChild(timerSpan);
 }
